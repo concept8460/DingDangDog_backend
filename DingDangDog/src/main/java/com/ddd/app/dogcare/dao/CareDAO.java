@@ -9,8 +9,7 @@ import com.ddd.app.dogcare.dto.CareApplyDTO;
 import com.ddd.app.dogcare.dto.CareDTO;
 import com.ddd.app.dogcare.dto.CareDetailDTO;
 import com.ddd.app.dogcare.dto.CareListDTO;
-import com.ddd.app.report.dto.ReportDTO;
-import com.ddd.app.config.MyBatisConfig;
+import com.ddd.config.MyBatisConfig;
 
 public class CareDAO {
 
@@ -27,7 +26,7 @@ public class CareDAO {
     }
 
     // 멍! 케어 목록 조회
-    public List<CareListDTO> selectAll(Map<String, Integer> pageMap) {
+    public List<CareListDTO> selectCareList(Map<String, Integer> pageMap) {
         System.out.println("멍! 케어 목록 조회 실행 : " + pageMap);
         List<CareListDTO> list = sqlSession.selectList("care.selectAll", pageMap);
         System.out.println("조회된 멍! 케어 게시글 수 : " + list.size());
@@ -117,12 +116,5 @@ public class CareDAO {
         return sqlSession.selectOne("care.getApplyStatus", careNumber);
     }
 
-    // 신고 기능
-    public int insertReport(ReportDTO reportDTO) {
-        System.out.println("멍! 케어 신고 실행");
-        int result = sqlSession.insert("care.insertReport", reportDTO);
-        System.out.println("신고 결과 : " + result);
-        return result;
-    }
 
 }

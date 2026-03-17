@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.ddd.app.Execute;
 import com.ddd.app.Result;
 import com.ddd.app.user.dao.UserDAO;
-import com.ddd.app.user.dto.UserDTO;
 
 public class CheckIdOkController implements Execute {
 

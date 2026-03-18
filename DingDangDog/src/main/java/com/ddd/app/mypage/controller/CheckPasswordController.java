@@ -21,36 +21,25 @@ public class CheckPasswordController implements Execute {
 		System.out.println("===CheckPasswordController 실행===");
 
 		HttpSession session = request.getSession();
-		String inputPassword = request.getParameter("checkPassword");
-		System.out.println("1");
-		System.out.println("=======" + session);
-		if (session != null) {
-			System.out.println("받아옴?");
-		} else {
-			System.out.println("못받아옴");
-		}
 		UserDTO userDTO = new UserDTO();
-		System.out.println("2");
 		MypageDAO mypageDAO = new MypageDAO();
-		System.out.println("3");
 		Result result = new Result();
-		System.out.println("4");
-		int loginUserNumber =  Integer.parseInt((String) session.getAttribute("userNumber"));
-		System.out.println("5");
-		String loginUserType = (String) session.getAttribute("userType");
-		System.out.println("6");
 		String path = null;
 
-		System.out.println(loginUserNumber);
-		System.out.println(loginUserType);
-		System.out.println(inputPassword);
+		int loginUserNumber = (Integer) session.getAttribute("userNumber");
+		String loginUserType = (String) session.getAttribute("userType");
+		String inputPassword = request.getParameter("checkPassword");
+
+		System.out.println("회원번호 : " + loginUserNumber);
+		System.out.println("유저타입 : " + loginUserType);
+		System.out.println("입력한 비밀번호 :" + inputPassword);
 
 		userDTO.setUserNumber(loginUserNumber);
 		userDTO.setUserPassword(inputPassword);
 
-		int test = mypageDAO.checkPassword(userDTO);
+		int checkResult = mypageDAO.checkPassword(userDTO);
 
-		if (test == 1) {
+		if (checkResult == 1) {
 			if (loginUserType.equals("C")) {
 				path = request.getContextPath() + "/mypage/profileEditC.mp";
 			} else if (loginUserType.equals("S")) {

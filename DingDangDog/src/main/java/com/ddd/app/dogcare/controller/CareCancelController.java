@@ -17,6 +17,7 @@ public class CareCancelController implements Execute{
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("=== CareCancelController 실행 ===");
 		
 		CareDAO careDAO = new CareDAO();
 		Map<String, Integer> map = new HashMap<>();

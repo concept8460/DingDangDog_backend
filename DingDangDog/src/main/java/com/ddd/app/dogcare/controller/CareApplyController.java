@@ -11,7 +11,7 @@ import com.ddd.app.dogcare.dto.CareApplyDTO;
 public class CareApplyController implements Execute{
 
 	public Result execute(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("CareApplyController 실행");
+		System.out.println("=== CareApplyController 실행 ===");
 
 		CareDAO careDAO = new CareDAO();
 		CareApplyDTO dto = new CareApplyDTO();

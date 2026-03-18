@@ -4,20 +4,41 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>내가 작성한 멍! 로그 목록</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/common/review_list.css" />
   <script defer src="${pageContext.request.contextPath}/assets/js/mypage/common/review_list.js"></script>
+  	<!--헤더 푸터용 css  -->
+  	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
 </head>
 
 <body>
-  <div id="header-container"></div>
+	<!-- 유저 번호 확인 존재시 로그인 헤더 -->
+	<c:choose>
+	  <c:when test="${not empty sessionScope.userNumber}">
+	    <jsp:include page="/app/header_login.jsp" />
+	  </c:when>
+	  <c:otherwise>
+	    <jsp:include page="/app/header_logout.jsp" />
+	  </c:otherwise>
+	</c:choose>
 
   <main class="review-list">
     <div class="container">
       <aside class="sidebar">
+        <nav class="side-menu">
+          <a class="btn-side-link" href="${pageContext.request.contextPath}/mypage/profileEdit.my">내 정보 변경</a>
+          <hr>
+          <a class="btn-side-link" href="${pageContext.request.contextPath}/mypage/volunteerStatus.my">멍! 케어 신청 확인</a>
+          <hr>
+          <a class="btn-side-link" href="${pageContext.request.contextPath}/mypage/reviewList.my">내가 작성한 멍! 로그 목록</a>
+          <hr>
+          <a class="btn-side-link" href="${pageContext.request.contextPath}/mypage/supportList.my">1 : 1 문의</a>
+        </nav>
       </aside>
 
       <section class="content">
@@ -35,59 +56,39 @@
                   <div class="col-date">작성일자</div>
                 </div>
 
-                <div id="reviewTableBody">
-                  <c:choose>
-                    <c:when test="${not empty logList}">
-                      <c:forEach var="log" items="${logList}">
-                        <div class="review-table-row" data-log-number="${log.logNumber}">
-                          <div class="col-number">${log.logNumber}</div>
-                          <div class="col-title">
-                            <c:choose>
-                              <c:when test="${not empty log.logTitle}">
-                                ${log.logTitle}
-                              </c:when>
-                              <c:otherwise>
-                                제목 없음
-                              </c:otherwise>
-                            </c:choose>
-                          </div>
-                          <div class="col-date">${log.logDate}</div>
-                        </div>
-                      </c:forEach>
-                    </c:when>
-
-                    <c:otherwise>
-                      <div class="empty-box">작성한 멍! 로그가 없습니다.</div>
-                    </c:otherwise>
-                  </c:choose>
-                </div>
+                <div id="reviewTableBody"></div>
               </div>
 
               <div class="panel-footer">
                 <div class="pagination">
-                  <ul class="page-list" id="pagination">
-                    <li>
-                      <button type="button" class="prev-btn">
-                        <span>&lt;</span>
-                      </button>
-                    </li>
-                    <li>
-                      <button type="button" class="next-btn">
-                        <span>&gt;</span>
-                      </button>
-                    </li>
-                  </ul>
+                  <ul class="page-list" id="pagination"></ul>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
     </div>
   </main>
 
-  <div id="footer-container"></div>
-  <script src="${pageContext.request.contextPath}/assets/js/header-footer.js"></script>
+
+  <!-- 서버 데이터 -->
+  <script>
+    const contextPath = "${pageContext.request.contextPath}";
+    const reviewData = [
+      <c:forEach var="log" items="${logList}" varStatus="status">
+        {
+          id: ${empty log.logNumber ? 0 : log.logNumber},
+          title: "<c:out value='${log.logTitle}'/>",
+          date: "<c:out value='${log.logDate}'/>"
+        }<c:if test="${!status.last}">,</c:if>
+      </c:forEach>
+    ];
+  </script>
+
+  
+
+	<!-- 푸터 jsp 적용  -->
+	<jsp:include page="/app/footer.jsp" />
 </body>
 </html>

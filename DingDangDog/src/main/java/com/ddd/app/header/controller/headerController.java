@@ -52,7 +52,7 @@ public class headerController extends HttpServlet {
 		
 		
 		// 테스트용 하드코딩 세션
-		request.getSession().setAttribute("userNumber", 10001);
+//		request.getSession().setAttribute("userNumber", 10001);
 
 		switch (target) {
 		

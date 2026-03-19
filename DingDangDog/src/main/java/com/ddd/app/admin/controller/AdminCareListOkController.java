@@ -73,7 +73,7 @@ public class AdminCareListOkController implements Execute {
 				.println("startPage : " + startPage + "endPage : " + endPage + ", prev : " + prev + ", next : " + next);
 		System.out.println("=====================");
 
-		result.setPath("/app/dogcare/dogcare_list_common.jsp");
+		result.setPath("/app/admin/dogcare/admin_dogcare_list_.jsp");
 		result.setRedirect(false);
 		return result;
 	}

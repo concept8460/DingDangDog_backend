@@ -40,4 +40,16 @@ public class MypageDAO {
 	public void deleteOldestResult(int userNumber) {
 		sqlSession.delete("myPageMatching.deleteOldestResult", userNumber);
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+

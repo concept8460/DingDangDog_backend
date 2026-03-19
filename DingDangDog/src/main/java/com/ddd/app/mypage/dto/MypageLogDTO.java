@@ -76,8 +76,8 @@ public class MypageLogDTO {
 
 	@Override
 	public String toString() {
-		return "MypageLogDTO [logNumber=" + logNumber + ", userNumber=" + userNumber + ", userNickname=" + userNickname
-				+ ", logTitle=" + logTitle + ", logPost=" + logPost + ", logDate=" + logDate + ", logModifyDate="
-				+ logModifyDate + ", representativeImgPath=" + representativeImgPath + "]";
+		return "MypageLogDTO [logNumber=" + logNumber + ", userNumber=" + userNumber + ", userNickname="
+				+ userNickname + ", logTitle=" + logTitle + ", logPost=" + logPost + ", logDate=" + logDate
+				+ ", logModifyDate=" + logModifyDate + ", representativeImgPath=" + representativeImgPath + "]";
 	}
 }

@@ -58,9 +58,9 @@
 		<typeAlias type="com.ddd.app.inquiry.dto.InquiryDetailDTO"
 			alias="InquiryDetailDTO" />
 		<typeAlias type="com.ddd.app.inquiry.dto.InquiryWritingDTO"
-			alias="InquiryWritingDTO" />  -->
+			alias="InquiryWritingDTO" />
 		<typeAlias type="com.ddd.app.mypage.dto.MypageCcareDTO"
-			alias="MypageCcareDTO" />
+			alias="MypageCcareDTO" />  -->
 		<typeAlias type="com.ddd.app.mypage.dto.MypageScareDTO"
 			alias="MypageScareDTO" />
 		<typeAlias type="com.ddd.app.mypage.dto.MyPageDogMatchingDTO"

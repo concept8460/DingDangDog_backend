@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ddd.app.Result;
+import com.ddd.app.report.controller.ReportOkController;
 
 /**
  * Servlet implementation class DogCareFrontController
@@ -66,6 +67,10 @@ public class DogcareFrontController extends HttpServlet {
             result = new CareDetailController().execute(request, response);
             System.out.println("케어 상세페이지 처리 완료");
             break;
+        case "/care/reportOk.ca":
+        	System.out.println("케어 신고 처리 요청");
+        	result = new ReportOkController().execute(request, response);
+        	System.out.println("케어 신고 처리 완료");
         case "/care/write.ca":
             System.out.println("케어 글 작성페이지 이동 요청");
             result = new CareWriteController().execute(request, response);

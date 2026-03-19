@@ -17,7 +17,14 @@ public class AdminCareDTO {
 	private String userName;
 	private String userPhone;
 	private int applyNumber;
+	private String applyStatus;
 	
+	public String getApplyStatus() {
+		return applyStatus;
+	}
+	public void setApplyStatus(String applyStatus) {
+		this.applyStatus = applyStatus;
+	}
 	public int getCareNumber() {
 		return careNumber;
 	}

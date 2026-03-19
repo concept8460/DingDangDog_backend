@@ -26,7 +26,7 @@ public class CareDetailController implements Execute{
 		CareDetailDTO detail = careDAO.selectCare(careNumber);
 
 		request.setAttribute("care", detail);
-
+		System.out.println("상세정보 출력");
 		result.setPath("/app/care/care_detail_common.jsp");
 		result.setRedirect(false);
 

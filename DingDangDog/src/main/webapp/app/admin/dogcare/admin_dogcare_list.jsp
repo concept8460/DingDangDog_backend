@@ -79,19 +79,12 @@
 
 					</div>
 				</form>
-
+				
 				<!-- 페이지네이션 -->
-				<c:set var="currentPage" value="${page < 1 ? 1 : page}" />
-				<c:set var="startPage" value="${startPage < 1 ? 1 : startPage}" />
-				<c:set var="endPage" value="${endPage < 1 ? 1 : endPage}" />
-
-				<c:set var="type" value="${param.type}" />
-				<c:set var="keyword" value="${param.keyword}" />
-
 				<div class="pagination">
 					<ul class="page-list">
 
-						<!-- 이전 -->
+						<!-- 이전 버튼 -->
 						<c:if test="${prev}">
 							<li><a
 								href="${pageContext.request.contextPath}/admin/adminCareListOk?page=${startPage - 1}&type=${type}&keyword=${keyword}">
@@ -99,17 +92,16 @@
 							</a></li>
 						</c:if>
 
-						<!-- 페이지 번호 (무조건 1 이상 보장) -->
+						<!-- 페이지 번호 -->
 						<c:forEach var="i" begin="${startPage}" end="${endPage}">
 							<li><a
 								href="${pageContext.request.contextPath}/admin/adminCareListOk?page=${i}&type=${type}&keyword=${keyword}">
-									<button
-										class="page-item ${i == currentPage ? 'current-page' : ''}">
+									<button class="page-item ${i == page ? 'current-page' : ''}">
 										${i}</button>
 							</a></li>
 						</c:forEach>
 
-						<!-- 다음 -->
+						<!-- 다음 버튼 -->
 						<c:if test="${next}">
 							<li><a
 								href="${pageContext.request.contextPath}/admin/adminCareListOk?page=${endPage + 1}&type=${type}&keyword=${keyword}">

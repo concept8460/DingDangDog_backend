@@ -104,7 +104,9 @@
 		u.user_birth, u.user_phone, u.user_email,
 		(SELECT
 		LISTAGG(report_reason, ', ') WITHIN GROUP (ORDER BY report_number)
-		FROM ddd_report ) AS report_reason
+		FROM ddd_report 
+		WHERE reported_user_number = u.user_number
+		) AS report_reason
 		FROM ddd_user u
 		WHERE u.user_number =
 		#{userNumber}

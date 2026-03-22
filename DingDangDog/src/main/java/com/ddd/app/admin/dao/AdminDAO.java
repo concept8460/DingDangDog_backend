@@ -180,7 +180,7 @@ public class AdminDAO {
 	}
 
 	// 블랙리스트 전체 목록 조회
-	public List<AdminBlackDTO> selectBlackList(Map<String, Integer> pageMap) {
+	public List<AdminBlackDTO> selectBlackList(Map<String, Object> pageMap) {
 		System.out.println("블랙리스트 전체 목록 조회");
 		return sqlSession.selectList("adminBlack.selectBlackList", pageMap);
 	}

@@ -60,7 +60,7 @@
 
 					<article class="panel panel-left">
 						<div class="panel-head">
-							<h2 class="panel-title">${sessionScope.userName}님의멍!매칭 결과</h2>
+							<h2 class="panel-title">${user.userNickname} 님의 멍!매칭 결과</h2>
 						</div>
 
 						<div class="panel-body">
@@ -81,7 +81,7 @@
 							</ul>
 							<div class="panel-footer">
 								<a class="btn-outline"
-									href="${pageContext.request.contextPath}/matching/main.mc">멍!
+									href="${pageContext.request.contextPath}/matching/test.ma">멍!
 									매칭 하러가기</a>
 							</div>
 						</div>

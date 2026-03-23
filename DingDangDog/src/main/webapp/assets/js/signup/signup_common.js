@@ -291,10 +291,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		}
 
-/*		fetch(`${base}/user/sendSMS.us?realPhoneNumber=${realPhoneNumber}`, {*/
-		fetch(`${base}/user/sendSMS.us`, {
+		fetch(`${base}/user/sendSMS.us?realPhoneNumber=${realPhoneNumber}`, {
+			//fetch(`${base}/user/sendSMS.us`, {
 			method: "POST",
-			headers: { "Content-Type": "application/json; charset=utf-8", "Accept": "application/json" },
+			headers: { "Content-Type": "application/json; charset=utf-8", "Accept": "application/json"/*, "X-Requested-With": "XMLHttpRequest" */ },
 			body: JSON.stringify({ realPhoneNumber })
 		})
 			.then(r => {

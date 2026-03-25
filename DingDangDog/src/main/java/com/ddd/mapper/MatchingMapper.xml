@@ -3,25 +3,25 @@
 <mapper namespace="matching">
 
 	<insert id="insertResult" parameterType="com.ddd.app.dogmatching.dto.MatchingResultDTO">
-	    INSERT INTO DDD_MATCH_RESULT (
-	        RESULT_NUMBER,
-	        USER_NUMBER,
-	        DOG_ACTIVITY,
-	        DOG_SOCIALITY,
-	        DOG_INDEPENDENCE,
-	        DOG_BARKING,
-	        DOG_GROOMING,
-	        RESULT_CREATED_DATE
-	    ) VALUES (
-	        #{resultNumber},
-	        #{userNumber},
-	        #{dogActivity},
-	        #{dogSociality},
-	        #{dogIndependence},
-	        #{dogBarking},
-	        #{dogGrooming},
-	        SYSDATE
-	    )
+		INSERT INTO DDD_MATCH_RESULT (
+			RESULT_NUMBER,
+			USER_NUMBER,
+			DOG_ACTIVITY,
+			DOG_SOCIALITY,
+			DOG_INDEPENDENCE,
+			DOG_BARKING,
+			DOG_GROOMING,
+			RESULT_CREATED_DATE
+		) VALUES (
+			SEQ_MATCH_RESULT.NEXTVAL,
+			#{userNumber},
+			#{dogActivity},
+			#{dogSociality},
+			#{dogIndependence},
+			#{dogBarking},
+			#{dogGrooming},
+			SYSDATE
+		)
 	</insert>
 
 	<select id="selectDogCardByDogNumber" parameterType="int" resultType="ArchiveListDTO">
